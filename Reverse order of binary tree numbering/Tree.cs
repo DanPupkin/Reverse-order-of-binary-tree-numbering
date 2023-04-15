@@ -22,6 +22,7 @@ namespace Reverse_order_of_binary_tree_numbering
             stack_depth = depth;
             nodes = new NodeButton[depth];
         }
+        //хранит 2 последних нажатых кнопки связывает их
         public void Push(NodeButton node, ref DataGridView Table)
         {
             
@@ -73,10 +74,7 @@ namespace Reverse_order_of_binary_tree_numbering
     {
 
         public Tree.Node node { get; set; }
-        //public NodeButton(Tree.Node node)
-        //{
-        //    this.node = node;
-        //}
+        
 
         Point DownPoint;
         bool IsDragMode;
@@ -181,23 +179,7 @@ namespace Reverse_order_of_binary_tree_numbering
             if (node != null)
             {
                 node.TextColor = Color.Green;
-               // Thread.Sleep(100);
-                //foreach (var x in panel.Controls)
-                //{
-                    
-
-                //    if (x is NodeButton)
-                //    {
-                //        Console.WriteLine($"нода");
-                //        NodeButton nb = (NodeButton)x;
-                //        if (node == nb.node)
-                //        {
-                //            nb.ForeColor = Color.Green;
-                //        }
-
-                //    }
-                //}
-                //panel.Refresh();
+               
 
                 s += "    обходим левое поддерево" + "\n";
                 Postorder(node.Left, ref s, ref b, ref panel);

@@ -14,16 +14,13 @@ namespace Reverse_order_of_binary_tree_numbering
         {
             
             InitializeComponent();
-            //button1.Click += button1_Click;
-            clear_stack_button.Click += Clear_Click;
+          
             panel1.Click += panel1_click;
             this.Load += Form1_Load;
             // textBox1.TextChanged+= textBox1_TextChanged;
             panel1.Paint += panel1_Paint;
             draw_button.Click += draw_button_Click;
             panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-
-
 
         }
 
@@ -56,19 +53,12 @@ namespace Reverse_order_of_binary_tree_numbering
             Console.WriteLine(Table[0,0].Value);
             for (int column = 1; column < Table.Rows.Count; column++) { 
 
-            //    var sub_col = new DataGridViewTextBoxColumn();
-            //    Table.Columns.Add(sub_col);
-            //    Table[column, 0].Value = Table[0, column].Value;
+            
                Table[column, column].Value = "~";
             }
             
             Table.Columns.RemoveAt(Table.Columns.Count-1);
-            
-
-            
-
-
-            //Table.Columns.Add("0");
+        
 
         }
         
@@ -79,15 +69,15 @@ namespace Reverse_order_of_binary_tree_numbering
             {
                 
                 Graphics gr = e.Graphics;
-               // gr.Clear(Color.White);
+               
                 Pen pen = new Pen(Color.Blue, 3);
                 foreach (NodeButton b in Nodes)
                 {
                     b.ForeColor = b.node.TextColor;
-                    //Console.WriteLine($"{b.Location} корневой ноды");
+                    
                     
                     Point p0 = new Point(b.Location.X - panel1.Location.X + 32, b.Location.Y);
-                    //Console.WriteLine($"{p0} p0");
+                    
                     if (b.node.Left != null)
                     {
                         Point p1 = new Point(b.node.Left.Position.X - panel1.Location.X+32, b.node.Left.Position.Y);
@@ -151,14 +141,13 @@ namespace Reverse_order_of_binary_tree_numbering
                     Table[Table_counter, 0].Value = Table[0, Table_counter].Value; Table_counter++;
 
 
-
-
                 }
             }
 
         }
         private void NodeButton_Click(object sender, EventArgs e)
         {
+            
             NodeButton sub_button = (NodeButton)sender;
             Console.WriteLine(sub_button.node.Left);
             panel1.Refresh();
@@ -186,28 +175,20 @@ namespace Reverse_order_of_binary_tree_numbering
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
+        
         private void draw_button_Click (object sender, EventArgs e)
         {
             panel1.Refresh();
         }
 
-        //private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        //{
-
-       // }
+        
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
             
             var col = new DataGridViewTextBoxColumn();
             var col2 = new DataGridViewTextBoxColumn();
-            //var row = new DataGridViewRow();
-            //var cl = new DataGridViewTextBoxCell();
-            //cl.Value = i;
+            
 
             Table.Columns.Add(col);
             Table.Columns.Add(col2);

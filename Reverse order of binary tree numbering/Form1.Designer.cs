@@ -32,7 +32,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.clear_stack_button = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.draw_button = new System.Windows.Forms.Button();
             this.draw_box = new System.Windows.Forms.CheckBox();
@@ -44,7 +43,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(741, 3);
+            this.button1.Location = new System.Drawing.Point(832, 3);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 3, 300, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 34);
             this.button1.TabIndex = 0;
@@ -80,19 +80,8 @@
             this.label1.Text = "Количество нод";
             this.label1.Visible = false;
             // 
-            // clear_stack_button
-            // 
-            this.clear_stack_button.Location = new System.Drawing.Point(877, 3);
-            this.clear_stack_button.Margin = new System.Windows.Forms.Padding(3, 3, 250, 3);
-            this.clear_stack_button.Name = "clear_stack_button";
-            this.clear_stack_button.Size = new System.Drawing.Size(135, 34);
-            this.clear_stack_button.TabIndex = 6;
-            this.clear_stack_button.Text = "очистить стек";
-            this.clear_stack_button.UseVisualStyleBackColor = true;
-            // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.clear_stack_button);
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.draw_button);
             this.flowLayoutPanel1.Controls.Add(this.draw_box);
@@ -107,7 +96,7 @@
             // 
             // draw_button
             // 
-            this.draw_button.Location = new System.Drawing.Point(601, 3);
+            this.draw_button.Location = new System.Drawing.Point(692, 3);
             this.draw_button.Name = "draw_button";
             this.draw_button.Size = new System.Drawing.Size(134, 34);
             this.draw_button.TabIndex = 7;
@@ -117,7 +106,7 @@
             // draw_box
             // 
             this.draw_box.AutoSize = true;
-            this.draw_box.Location = new System.Drawing.Point(450, 3);
+            this.draw_box.Location = new System.Drawing.Point(541, 3);
             this.draw_box.Name = "draw_box";
             this.draw_box.Size = new System.Drawing.Size(145, 24);
             this.draw_box.TabIndex = 7;
@@ -127,7 +116,7 @@
             // Nodes_connection_switch
             // 
             this.Nodes_connection_switch.AutoSize = true;
-            this.Nodes_connection_switch.Location = new System.Drawing.Point(299, 3);
+            this.Nodes_connection_switch.Location = new System.Drawing.Point(390, 3);
             this.Nodes_connection_switch.Name = "Nodes_connection_switch";
             this.Nodes_connection_switch.Size = new System.Drawing.Size(145, 24);
             this.Nodes_connection_switch.TabIndex = 8;
@@ -172,7 +161,6 @@
         private TextBox textBox1;
         private Panel panel1;
         private Label label1;
-        private Button clear_stack_button;
         private FlowLayoutPanel flowLayoutPanel1;
         private CheckBox Nodes_connection_switch;
         private CheckBox draw_box;
