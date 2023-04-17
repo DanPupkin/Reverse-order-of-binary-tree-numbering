@@ -165,13 +165,14 @@ namespace Reverse_order_of_binary_tree_numbering
         public Point Position { get; set; }
             public bool HaveParent = false;
             public Color TextColor;
+            public int coun;
         public Node (ref Color clr)
             {
                 TextColor= clr;
             }
         }
         public Node node { get; set; }
-        private void Postorder(Node node, ref string s, ref string b, ref Panel panel)
+        private void Postorder(Node node, ref string s, ref string b, ref Panel panel, ref int counter)
         {
 
 
@@ -179,30 +180,32 @@ namespace Reverse_order_of_binary_tree_numbering
             if (node != null)
             {
                 node.TextColor = Color.Green;
-               
 
+                
                 s += "    обходим левое поддерево" + "\n";
-                Postorder(node.Left, ref s, ref b, ref panel);
+                Postorder(node.Left, ref s, ref b, ref panel, ref  counter);
                 
 
 
                 s += "    обходим правое поддерево" + "\n";
-                Postorder(node.Right, ref s, ref b, ref panel);
+                Postorder(node.Right, ref s, ref b, ref panel, ref counter);
 
 
                 s += "    получили значение " + node.Value.ToString() + "\n";
+                node.coun = counter;
+
 
                 //s += node.Value.ToString() + " ";
                 b += node.Value.ToString() + " ";
-
+                counter++;
                 
 
             }
             else { s += "    значение отсутствует - null" + "\n"; panel.Refresh(); }
             }
-        public void GetPostorder(Node node, ref string s, ref string b, ref Panel panel)
+        public void GetPostorder(Node node, ref string s, ref string b, ref Panel panel, ref int counter)
         {
-            this.Postorder(node,ref s, ref b, ref panel);
+            this.Postorder(node,ref s, ref b, ref panel, ref  counter);
         }
     }
 }

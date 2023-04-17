@@ -45,10 +45,15 @@ namespace Reverse_order_of_binary_tree_numbering
             tree.node = Nodes[0].node;
             string s = "";
             string c = "";
-            int counter = 0;
-           tree.GetPostorder(Nodes[0].node, ref s, ref c, ref panel1);
+            int node_counter = 1;
+           tree.GetPostorder(Nodes[0].node, ref s, ref c, ref panel1, ref node_counter);
             s += "\n";
             MessageBox.Show(s+c);
+            
+            //foreach (NodeButton b in Nodes)
+            //{
+            //    b.Text = b.node.Value.ToString() +"-"+ b.node.coun.ToString();
+            //}
             
             Console.WriteLine(Table[0,0].Value);
             for (int column = 1; column < Table.Rows.Count; column++) { 
@@ -74,8 +79,9 @@ namespace Reverse_order_of_binary_tree_numbering
                 foreach (NodeButton b in Nodes)
                 {
                     b.ForeColor = b.node.TextColor;
-                    
-                    
+
+                    Console.WriteLine($"пожилой тест{b.node.coun}");
+                    b.Text = b.node.Value.ToString() +"-"+ b.node.coun.ToString();
                     Point p0 = new Point(b.Location.X - panel1.Location.X + 32, b.Location.Y);
                     
                     if (b.node.Left != null)
@@ -98,7 +104,7 @@ namespace Reverse_order_of_binary_tree_numbering
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            //AllocConsole();
+            AllocConsole();
             
         }
         //инициализация консоли для отладки
