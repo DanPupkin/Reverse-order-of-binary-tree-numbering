@@ -104,7 +104,7 @@ namespace Reverse_order_of_binary_tree_numbering
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            AllocConsole();
+           // AllocConsole();
             
         }
         //инициализация консоли для отладки
