@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Reverse_order_of_binary_tree_numbering
 {
@@ -159,53 +160,70 @@ namespace Reverse_order_of_binary_tree_numbering
     {
         public class Node { 
         public int Value { get; set; }
-        public int Count = 0;
+        
+
+        //левый  и правый потомок узла(вершины)
         public Node Left { get; set; }
         public Node Right { get; set; }
+
+        //позиция вершины на экране
         public Point Position { get; set; }
-            public bool HaveParent = false;
-            public Color TextColor;
-            public int coun;
+        // вспомогательный флаг, для создания дерева
+        public bool HaveParent = false;
+        public Color TextColor;
+        public int count;
         public Node (ref Color clr)
             {
                 TextColor= clr;
             }
         }
         public Node node { get; set; }
-        private void Postorder(Node node, ref string s, ref string b, ref Panel panel, ref int counter)
+        
+        //обход в ширину слева-направо
+        private void Across(Node node, ref string s, ref string b, ref int counter)
         {
+            
+            var queue = new Queue<Tree.Node>();
+            //queue - FIFO очередь
+            //queue.Enqueue - добавляет элемент в очередь
+            //queue.Dequeue - возвращает элемент и удаляет его из очереди
+            //queue.Peek - последниц элемент в очереди
+            //*Параметры*
+            //node - корень, с которого начинается обход
+            //s и b - вспомогательные строки, куда записывается ход работы алгоритма
+            //counter - счетчик нумерации
 
-
-
-            if (node != null)
+            queue.Enqueue(node);
+            while (queue.Count != 0) // пока очередь не пуста
             {
-                node.TextColor = Color.Green;
-
-                
-                s += "    обходим левое поддерево" + "\n";
-                Postorder(node.Left, ref s, ref b, ref panel, ref  counter);
-                
-
-
-                s += "    обходим правое поддерево" + "\n";
-                Postorder(node.Right, ref s, ref b, ref panel, ref counter);
-
-
-                s += "    получили значение " + node.Value.ToString() + "\n";
-                node.coun = counter;
-
-
-                //s += node.Value.ToString() + " ";
-                b += node.Value.ToString() + " ";
+                //если у текущей ветви есть листья, их тоже добавить в очередь
+                //в общем случае мы должны обоходить все СМЕЖНЫЕ вершины, но в деревьях это листья 
+                if (queue.Peek().Left != null)
+                {
+                     s += "    заносим в очередь значение " + queue.Peek().Left.Value.ToString() + " из левого поддерева" + Environment.NewLine;
+                    queue.Enqueue(queue.Peek().Left);
+                }
+                if (queue.Peek().Right != null)
+                {
+                     s += "    заносим в очередь значение " + queue.Peek().Right.Value.ToString() + " из правого поддерева" + Environment.NewLine;
+                    queue.Enqueue(queue.Peek().Right);
+                }
+                //извлечь из очереди информационное поле последнего элемента
+                 s += "    извлекаем значение из очереди: " + queue.Peek().Value.ToString() + Environment.NewLine;
+                 b += queue.Peek().Value.ToString() + " "; // убрать последний элемент очереди
+                queue.Peek().TextColor = Color.Green;
+                queue.Peek().count = counter;
                 counter++;
-                
+                //удаляем "отработанную" вершину, движемся дальше по очереди в цикле
+                queue.Dequeue();
+            }
 
-            }
-            else { s += "    значение отсутствует - null" + "\n"; panel.Refresh(); }
-            }
-        public void GetPostorder(Node node, ref string s, ref string b, ref Panel panel, ref int counter)
+        }
+        
+        //вспомогательная функция-прослойка, чтобы соблюдать MVC
+        public void GetAcross(Node node, ref string s, ref string b, ref int counter)
         {
-            this.Postorder(node,ref s, ref b, ref panel, ref  counter);
+            this.Across(node, ref s, ref b, ref counter);
         }
     }
 }

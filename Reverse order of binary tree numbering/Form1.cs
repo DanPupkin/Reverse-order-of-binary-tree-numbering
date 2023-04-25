@@ -46,16 +46,15 @@ namespace Reverse_order_of_binary_tree_numbering
             string s = "";
             string c = "";
             int node_counter = 1;
-           tree.GetPostorder(Nodes[0].node, ref s, ref c, ref panel1, ref node_counter);
+            tree.GetAcross(Nodes[0].node, ref s, ref c, ref node_counter);
             s += "\n";
-            MessageBox.Show(s+c);
+            //MessageBox.Show(s+c);
+            label1.Text = s + c;
+            panel1.Refresh();
             
-            //foreach (NodeButton b in Nodes)
-            //{
-            //    b.Text = b.node.Value.ToString() +"-"+ b.node.coun.ToString();
-            //}
             
-            Console.WriteLine(Table[0,0].Value);
+            
+            
             for (int column = 1; column < Table.Rows.Count; column++) { 
 
             
@@ -70,8 +69,8 @@ namespace Reverse_order_of_binary_tree_numbering
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            if (draw_box.Checked)
-            {
+            //if (!draw_box.Checked)
+            //{
                 
                 Graphics gr = e.Graphics;
                
@@ -80,8 +79,8 @@ namespace Reverse_order_of_binary_tree_numbering
                 {
                     b.ForeColor = b.node.TextColor;
 
-                    Console.WriteLine($"пожилой тест{b.node.coun}");
-                    b.Text = b.node.Value.ToString() +"-"+ b.node.coun.ToString();
+                    Console.WriteLine($"пожилой тест{b.node.count}");
+                    b.Text = b.node.Value.ToString() +"-"+ b.node.count.ToString();
                     Point p0 = new Point(b.Location.X - panel1.Location.X + 32, b.Location.Y);
                     
                     if (b.node.Left != null)
@@ -98,7 +97,7 @@ namespace Reverse_order_of_binary_tree_numbering
                 }
             
                 
-            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
