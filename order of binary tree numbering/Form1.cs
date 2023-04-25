@@ -1,8 +1,8 @@
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
-using static Reverse_order_of_binary_tree_numbering.Tree;
+using static order_of_binary_tree_numbering.Tree;
 
-namespace Reverse_order_of_binary_tree_numbering
+namespace order_of_binary_tree_numbering
 {
     public partial class Form1 : Form
     {
@@ -17,10 +17,11 @@ namespace Reverse_order_of_binary_tree_numbering
           
             panel1.Click += panel1_click;
             this.Load += Form1_Load;
-            // textBox1.TextChanged+= textBox1_TextChanged;
+            
             panel1.Paint += panel1_Paint;
             draw_button.Click += draw_button_Click;
             panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            
 
         }
 
@@ -74,7 +75,7 @@ namespace Reverse_order_of_binary_tree_numbering
                 
                 Graphics gr = e.Graphics;
                
-                Pen pen = new Pen(Color.Blue, 3);
+                Pen pen = new Pen(Color.Black, 3);
                 foreach (NodeButton b in Nodes)
                 {
                     b.ForeColor = b.node.TextColor;
@@ -121,10 +122,10 @@ namespace Reverse_order_of_binary_tree_numbering
             Console.WriteLine(textBox1.Text);
             //создание кнопки по клику
             Random rnd = new Random();
-            Image backgroundImage = Image.FromFile("images/26aa.png");
+            Image backgroundImage = Image.FromFile("images/circle.png");
 
             if (i < 100) {
-                Color foreColor = Color.Red;
+                Color foreColor = Color.Black;
                 Tree.Node Node = new Tree.Node(ref foreColor) { Value = i };
                 NodeButton a = new NodeButton() { ForeColor = foreColor, panel = this.panel1, Text = $"{i}", Location = new Point(MousePosition.X - this.Location.X - backgroundImage.Width / 2, MousePosition.Y - this.Location.Y - backgroundImage.Height), BackgroundImage = backgroundImage, Size = backgroundImage.Size, node = Node};
                 Nodes.Add(a) ;

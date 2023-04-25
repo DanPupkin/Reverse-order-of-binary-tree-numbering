@@ -1,4 +1,4 @@
-namespace Reverse_order_of_binary_tree_numbering
+namespace order_of_binary_tree_numbering
 {
     internal static class Program
     {

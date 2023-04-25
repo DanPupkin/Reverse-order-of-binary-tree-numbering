@@ -1,4 +1,4 @@
-﻿namespace Reverse_order_of_binary_tree_numbering
+﻿namespace order_of_binary_tree_numbering
 {
     partial class Form1
     {
@@ -62,6 +62,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Location = new System.Drawing.Point(12, 27);
             this.panel1.Name = "panel1";
@@ -96,7 +97,7 @@
             this.draw_button.Name = "draw_button";
             this.draw_button.Size = new System.Drawing.Size(134, 34);
             this.draw_button.TabIndex = 7;
-            this.draw_button.Text = "draw";
+            this.draw_button.Text = "отрисовать";
             this.draw_button.UseVisualStyleBackColor = true;
             this.draw_button.Visible = false;
             // 
@@ -132,7 +133,7 @@
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(1000, 700);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Обход в ширину";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();

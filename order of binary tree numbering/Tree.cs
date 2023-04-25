@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace Reverse_order_of_binary_tree_numbering
+namespace order_of_binary_tree_numbering
 {
     public class NodeStack
     {
