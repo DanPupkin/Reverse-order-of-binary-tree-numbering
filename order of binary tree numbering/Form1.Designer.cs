@@ -42,8 +42,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(832, 3);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 3, 300, 3);
+            this.button1.Location = new System.Drawing.Point(452, 3);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 3, 680, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 34);
             this.button1.TabIndex = 0;
@@ -93,7 +93,7 @@
             // 
             // draw_button
             // 
-            this.draw_button.Location = new System.Drawing.Point(692, 3);
+            this.draw_button.Location = new System.Drawing.Point(312, 3);
             this.draw_button.Name = "draw_button";
             this.draw_button.Size = new System.Drawing.Size(134, 34);
             this.draw_button.TabIndex = 7;
@@ -104,7 +104,7 @@
             // Nodes_connection_switch
             // 
             this.Nodes_connection_switch.AutoSize = true;
-            this.Nodes_connection_switch.Location = new System.Drawing.Point(512, 3);
+            this.Nodes_connection_switch.Location = new System.Drawing.Point(132, 3);
             this.Nodes_connection_switch.Name = "Nodes_connection_switch";
             this.Nodes_connection_switch.Size = new System.Drawing.Size(174, 24);
             this.Nodes_connection_switch.TabIndex = 8;

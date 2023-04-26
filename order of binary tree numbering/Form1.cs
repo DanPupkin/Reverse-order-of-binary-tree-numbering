@@ -26,19 +26,22 @@ namespace order_of_binary_tree_numbering
         }
 
         
-
+        //кнопка, которая использовалась для отладки, сейчас не активна
         private void Clear_Click(object sender, EventArgs e)
         {
             int len = Nodes_stack.nodes.Length;
             Nodes_stack.nodes = new NodeButton[len];
 
         }
+
+        //запуск нумерации
         private void button1_Click(object sender, EventArgs e)
         {
             
             Tree tree = new Tree();
             
             List <Tree.Node> nodes = new List<Tree.Node>();
+            //инициализация списка вершин(вспомогательный элемент)
             foreach(NodeButton b in Nodes)
             {
                 nodes.Add(b.node);
@@ -47,10 +50,12 @@ namespace order_of_binary_tree_numbering
             string s = "";
             string c = "";
             int node_counter = 1;
+            //запуск нумерации, нумерация идет с первой поставленной на экран вершины
             tree.GetAcross(Nodes[0].node, ref s, ref c, ref node_counter);
-            s += "\n";
-            //MessageBox.Show(s+c);
+            
+            //вывод подробного текста 
             label1.Text = s + c;
+            label1.Text += "\n";
             panel1.Refresh();
             
             
@@ -62,7 +67,7 @@ namespace order_of_binary_tree_numbering
                Table[column, column].Value = "~";
             }
             
-            Table.Columns.RemoveAt(Table.Columns.Count-1);
+            //Table.Columns.RemoveAt(Table.Columns.Count-1);
         
 
         }
@@ -80,20 +85,19 @@ namespace order_of_binary_tree_numbering
                 {
                     b.ForeColor = b.node.TextColor;
 
-                    Console.WriteLine($"пожилой тест{b.node.count}");
+                    
                     b.Text = b.node.Value.ToString() +"-"+ b.node.count.ToString();
                     Point p0 = new Point(b.Location.X - panel1.Location.X + 32, b.Location.Y);
                     
-                    if (b.node.Left != null)
+                    if (b.node.Childrens != null)
                     {
-                        Point p1 = new Point(b.node.Left.Position.X - panel1.Location.X+32, b.node.Left.Position.Y);
+                    foreach(Tree.Node sub_node in b.node.Childrens)
+                    { 
+                        Point p1 = new Point(sub_node.Position.X - panel1.Location.X+32, sub_node.Position.Y);
                         gr.DrawLine(pen, p0, p1);
                     }
-                    if (b.node.Right != null)
-                    {
-                        Point p1 = new Point(b.node.Right.Position.X - panel1.Location.X+32, b.node.Right.Position.Y);
-                        gr.DrawLine(pen, p0, p1);
-                    }
+                }
+                    
 
                 }
             
@@ -120,9 +124,10 @@ namespace order_of_binary_tree_numbering
         {
             
             Console.WriteLine(textBox1.Text);
-            //создание кнопки по клику
+            //создание кнопки по клику, складирование в список вершин
             Random rnd = new Random();
             Image backgroundImage = Image.FromFile("images/circle.png");
+            
 
             if (i < 100) {
                 Color foreColor = Color.Black;
@@ -131,6 +136,7 @@ namespace order_of_binary_tree_numbering
                 Nodes.Add(a) ;
                 i++;
             }
+            //заполнение матрицы смежности
             foreach (var x in Nodes)
             {
                 if (!Controls.Contains(x))
@@ -155,7 +161,7 @@ namespace order_of_binary_tree_numbering
         {
             
             NodeButton sub_button = (NodeButton)sender;
-            Console.WriteLine(sub_button.node.Left);
+            
             panel1.Refresh();
             if(Nodes_connection_switch.Checked)
             {
